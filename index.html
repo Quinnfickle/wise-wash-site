@@ -3,11 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+
     <title>Wise Wash | Pressure Washing Christchurch</title>
     <meta
       name="description"
       content="Wise Wash provides professional driveway, deck, and exterior cleaning in Christchurch. Fast quotes, tidy work, great results."
     />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet">
+    
 
     <style>
       :root{
@@ -23,6 +27,12 @@
         --radius: 16px;
         --radius-lg: 22px;
       }
+
+      .brand-font{
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.12em;
+}
+
 
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
@@ -76,28 +86,16 @@
 
 
       .logo-box img{
-  width: 140px;
+  width: 112px;
   height: auto;
 }
 
 
 
-      .brand-text{
-        display:flex;
-        flex-direction:column;
-        line-height: 1.1;
-      }
-      .brand-text strong{
-        font-size: 14px;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        color: var(--green);
-      }
-      .brand-text span{
-        font-size: 13px;
-        color: var(--muted);
-      }
 
+
+
+      
       /* Nav */
       .nav{
         display:flex;
@@ -106,15 +104,20 @@
       }
 
       .nav a,
-      .nav button{
-        font: inherit;
-        border: 0;
-        background: transparent;
-        padding: 10px 12px;
-        border-radius: 12px;
-        color: var(--text);
-        cursor:pointer;
-      }
+.nav button{
+  font: inherit;
+  border: 0;
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: var(--text);
+  cursor:pointer;
+
+  transition:
+    background-color 160ms cubic-bezier(.2,.8,.2,1),
+    color 160ms cubic-bezier(.2,.8,.2,1);
+}
+
 
       .nav a:hover,
       .nav button:hover{
@@ -128,13 +131,20 @@
       }
 
       .btn{
-        border: 1px solid var(--border);
-        background: var(--white);
-        padding: 10px 14px;
-        border-radius: 999px;
-        box-shadow: 0 10px 18px rgba(0,0,0,0.05);
-        font-weight: 600;
-      }
+  border: 1px solid var(--border);
+  background: var(--white);
+  padding: 10px 14px;
+  border-radius: 14px;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.05);
+  font-weight: 600;
+
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
 
       .btn-primary{
         background: var(--green);
@@ -164,9 +174,10 @@
         opacity: 0;
         transform: translateY(-6px);
         pointer-events: none;
-        transition: opacity 160ms ease, transform 160ms ease;
-      }
-
+        transition:
+    opacity 180ms cubic-bezier(.2,.8,.2,1),
+    transform 180ms cubic-bezier(.2,.8,.2,1);
+}
       .dropdown[data-open="true"] .dropdown-panel{
         opacity: 1;
         transform: translateY(0);
@@ -190,97 +201,113 @@
 
       /* Mobile */
       .menu-toggle{
-        display:none;
-      }
+  display:none;
+  background: none;
+  border: 0;
+  padding: 12px;          /* bigger tap area */
+  color: var(--text);
+  cursor: pointer;
+}
+
+
+
+/* Hamburger icon */
+.hamburger{
+  width: 20px;
+  height: 14px;
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger span{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
+.hamburger span:nth-child(1){ top: 0; }
+.hamburger span:nth-child(2){ top: 6px; }
+.hamburger span:nth-child(3){ top: 12px; }
+
+/* Optional: cleaner focus */
+.menu-toggle:focus-visible{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(60,94,74,0.12);
+}
+
+.menu-toggle:hover{
+  opacity: 0.7;
+}
+
+.menu-toggle:active{
+  transform: scale(0.96);
+}
+
 
       @media (max-width: 860px){
         .brand{ min-width: auto; }
         .nav{ display:none; }
         .menu-toggle{ display:inline-flex; }
         .cta{ gap: 8px; }
-        .brand-text span{ display:none; }
+        
       }
+
+      @media (min-width: 861px){
+  .brand-text{
+    display: none;
+  }
+}
+
 
       /* Hero */
       .hero{
-        padding: 54px 0 18px;
-      }
+  padding: 56px 0 24px;
+}
       .hero-grid{
-        display:grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 28px;
-        align-items: start;
-      }
+  display: grid;
+  grid-template-columns: 1fr;
+}
 
-      .hero h1{
-        font-size: clamp(34px, 4vw, 52px);
-        margin: 0 0 10px;
-        letter-spacing: -0.02em;
-      }
-      .hero p{
-        margin: 0 0 22px;
-        color: var(--muted);
-        font-size: 17px;
-        line-height: 1.55;
-      }
 
-      .hero-actions{
-        display:flex;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
+     /* Hero wordmark (green + sized) */
+.hero-logo{
+  width: min(440px, 100%);
+  height: auto;
+  margin: 0 0 12px;
+}
 
-      .hero-card{
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        padding: 18px;
-        box-shadow: var(--shadow);
-      }
+.hero-subtle{
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  color: var(--green-dark);
+  margin: 0;
+}
+@media (max-width: 860px){
+  .hero-subtle{
+    font-size: 16px;
+    letter-spacing: 0.05em;
+  }
+}
 
-      .badge{
-        display:inline-flex;
-        align-items:center;
-        gap: 8px;
-        background: rgba(60,94,74,0.10);
-        color: var(--green);
-        padding: 8px 12px;
-        border-radius: 999px;
-        font-weight: 700;
-        font-size: 13px;
-        margin-bottom: 14px;
-      }
 
-      .mini-list{
-        display:grid;
-        gap: 10px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-      .mini-list li{
-        display:flex;
-        gap: 10px;
-        align-items:flex-start;
-        padding: 10px 12px;
-        border-radius: 14px;
-        border: 1px solid var(--border);
-        background: rgba(246,248,247,0.6);
-      }
-      .dot{
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--green);
-        margin-top: 6px;
-        flex: 0 0 auto;
-      }
+@media (max-width: 860px){
+  .hero-logo{
+    max-width: 280px;
+    margin-bottom: 14px;
+  }
+}
 
-      @media (max-width: 860px){
-        .hero-grid{
-          grid-template-columns: 1fr;
-        }
-      }
+
+
+      
+
+      
+
+      
 
       /* Sections */
       section{
@@ -426,22 +453,57 @@
 
       /* Mobile drawer */
       .mobile-drawer{
-        display:none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.35);
-        z-index: 100;
-        padding: 18px;
-      }
-      .mobile-drawer[data-open="true"]{ display:block; }
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 100;
+  padding: 18px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.mobile-drawer[data-open="true"]{
+  opacity: 1;
+  pointer-events: auto;
+}
+.close-btn{
+  background: none;
+  border: 0;
+  font-size: 26px;
+  line-height: 1;
+  padding: 12px;
+  margin-left: auto;
+  display: block;
+  cursor: pointer;
+  color: var(--text);
+}
+
+
+.close-btn:hover{
+  opacity: 0.7;
+}
+
+
       .mobile-panel{
-        background: var(--white);
-        border-radius: 18px;
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-        padding: 12px;
-        width: min(520px, 100%);
-      }
+  background: var(--white);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 12px;
+  width: min(520px, 100%);
+
+  margin-left: auto;              /* push to right */
+  transform: translateX(24px);
+  transition: transform 260ms cubic-bezier(.2,.8,.2,1);
+
+}
+
+.mobile-drawer[data-open="true"] .mobile-panel{
+  transform: translateX(0);
+}
+
       .mobile-panel a, .mobile-panel button{
         width: 100%;
         text-align: left;
@@ -473,10 +535,7 @@
             <img src="elephant.png" alt="Wise Wash elephant logo" />
 
           </div>
-          <div class="brand-text">
-            <strong>Wise Wash</strong>
-            <span>Christchurch exterior cleaning</span>
-          </div>
+          
         </a>
 
         <nav class="nav" aria-label="Main navigation">
@@ -508,9 +567,17 @@
 
         <div class="cta">
           <!-- Replace with your real number -->
-          <a class="btn" href="tel:+64224782828">Call</a>
-          <a class="btn btn-primary" href="#quote">Book</a>
-          <button class="btn menu-toggle" type="button" id="openMenu">Menu</button>
+          <a class="btn btn-primary" href="tel:+64224782828">Call</a>
+
+
+          <a class="btn btn-primary" href="#quote">Get a quote</a>
+          <button class="menu-toggle" type="button" id="openMenu" aria-label="Open menu">
+
+  <span class="hamburger" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </span>
+</button>
+
         </div>
       </div>
     </header>
@@ -518,7 +585,11 @@
     <!-- Mobile drawer -->
     <div class="mobile-drawer" id="mobileDrawer" data-open="false" aria-hidden="true">
       <div class="mobile-panel">
-        <button type="button" id="closeMenu">Close</button>
+        <button type="button" id="closeMenu" class="close-btn" aria-label="Close menu">
+  <span aria-hidden="true">×</span>
+</button>
+
+
         <div class="mobile-divider"></div>
         <a href="#services" class="m-link">Services</a>
         <a href="#results" class="m-link">Results</a>
@@ -534,30 +605,25 @@
       <div class="container hero">
         <div class="hero-grid">
           <div>
-            <div class="badge">Amazing cleaning every time</div>
-            <h1>Pressure washing and exterior cleaning in Christchurch.</h1>
-            <p>
-              Driveways, paths, decks, and exterior surfaces cleaned properly, with tidy setup and
-              clear communication. Fast quotes. No drama.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#quote">Get a quote</a>
-              <a class="btn" href="#results">See results</a>
-              <a class="btn" href="tel:+64XXXXXXXXX">Call +64 …</a>
-            </div>
-            <p class="fine" style="margin-top: 14px;">
-              Next: replace the phone number and add your elephant image as <strong>elephant.png</strong>.
-            </p>
-          </div>
+            <img
+  class="hero-logo"
+  src="wise-wash-wordmark-green.png"
+  alt="Wise Wash — Exterior Cleaning"
+/>
 
-          <aside class="hero-card">
-            <div class="badge">What we’re best at</div>
-            <ul class="mini-list">
-              <li><span class="dot"></span><div><strong>Driveways & paths</strong><br><span class="fine">Big visual improvement, quick turnaround.</span></div></li>
-              <li><span class="dot"></span><div><strong>Decks</strong><br><span class="fine">Gentle where needed, clean finish.</span></div></li>
-              <li><span class="dot"></span><div><strong>Exterior wash</strong><br><span class="fine">Treat surfaces right, not just blast.</span></div></li>
-            </ul>
-          </aside>
+
+
+
+
+
+
+            <p class="hero-subtle">
+  A considered approach to residential exterior cleaning.
+</p>
+            
+
+          
+
         </div>
       </div>
 
@@ -727,7 +793,7 @@
         <div class="container footer-inner">
           <div class="pill">
             <span>Phone:</span>
-            <a href="tel:+64224782828">+64 22 478 2828</a>
+            <a href="tel:+64224782828">022 478 2828</a>
           </div>
           <div class="pill">
             <span>Email:</span>
