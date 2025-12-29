@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+
 
     <title>Wise Wash | Pressure Washing Christchurch</title>
     <meta
@@ -19,7 +23,7 @@
         --green-dark: #2e493a;
         --white: #ffffff;
         --bg: #f6f8f7;
-        --text: #101615;
+        --text: #101615; 
         --muted: #5b6662;
         --card: #ffffff;
         --border: rgba(16, 22, 21, 0.10);
@@ -287,22 +291,25 @@ section{
       }
 
       .dropdown-panel{
-        position:absolute;
-        top: calc(100% + 10px);
-        left: 0;
-        width: 260px;
-        padding: 10px;
-        background: var(--white);
-        border: 1px solid var(--border);
-        border-radius: 16px;
-        box-shadow: var(--shadow);
-        opacity: 0;
-        transform: translateY(-6px);
-        pointer-events: none;
-        transition:
+  position:absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 260px;
+  padding: 10px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  z-index: 60;
+
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition:
     opacity 180ms cubic-bezier(.2,.8,.2,1),
     transform 180ms cubic-bezier(.2,.8,.2,1);
 }
+
       .dropdown[data-open="true"] .dropdown-panel{
         opacity: 1;
         transform: translateY(0);
@@ -831,7 +838,7 @@ section{
               <p>Removes grime and algae without damaging the timber.</p>
             </div>
             <div class="card">
-              <h3>Exterior wash</h3>
+              <h3>Exterior washing</h3>
               <p>Walls, fences, and outdoor areas. Done neatly and respectfully.</p>
             </div>
           </div>
@@ -873,41 +880,42 @@ section{
   <div class="container">
     <div class="section-title">
       <h2>Pricing guide</h2>
-      <p>General ranges to help set expectations</p>
+<p>General ranges to help set expectations</p>
 
-    </div>
+</div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Driveways & paths</h3>
-        <p>
-          Most residential driveways fall between <strong>$160–$400</strong>,
-          depending on size, surface type, and condition.
-        </p>
-      </div>
+<div class="cards">
+  <div class="card">
+    <h3>Driveways & paths</h3>
+    <p>
+      <strong>Residential driveways are typically priced between $160–$400.</strong><br>
+      Final pricing depends on surface area, surface type, and overall condition once viewed on site.
+    </p>
+  </div>
 
-      <div class="card">
-        <h3>Decks & outdoor areas</h3>
-        <p>
-  Pricing varies significantly based on material, condition, and access.
-  Decks are assessed individually so the method suits the surface.
+  <div class="card">
+    <h3>Decks & outdoor areas</h3>
+    <p>
+      <strong>Assessed individually.</strong><br>
+      Pricing varies depending on materials and condition, with the cleaning approach matched to the surface.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Exterior washing</h3>
+    <p>
+  <strong>Priced after an on-site assessment.</strong><br>
+  This takes into account the building, materials, and surrounding areas to ensure the right approach.
 </p>
 
-      </div>
+  </div>
+</div>
 
-      <div class="card">
-        <h3>Exterior washing</h3>
-        <p>
-          Exterior washing is priced after a quick look at the building,
-          materials, and surrounding areas.
-        </p>
-      </div>
-    </div>
+<p class="fine" style="margin-top: 14px;">
+  These figures are a general guide. Final pricing is confirmed once the surface,
+  condition, and access are understood.
+</p>
 
-    <p class="fine" style="margin-top: 14px;">
-      These figures are a general guide. Final pricing is confirmed once the surface,
-      condition, and access are understood.
-    </p>
   </div>
 </section>
 
@@ -920,12 +928,10 @@ section{
     </div>
 
     <p class="statement">
-  Each job is approached carefully, with the method chosen to suit the surface and its condition.
-</p>
+Each job is approached carefully, with the method matched to the surface and its condition.</p>
 
 <p class="statement">
-  Products and techniques are selected to achieve clean results while respecting the materials.
-</p>
+Products and techniques are selected to suit the surface and deliver clean results.</p>
 
 
 
@@ -975,10 +981,12 @@ section{
                   <input
   id="phone"
   name="phone"
+  type="tel"
   autocomplete="tel"
   placeholder="022 123 4567"
   required
 />
+
 
                 </div>
 
@@ -998,23 +1006,24 @@ section{
   <label for="service">What needs cleaning?</label>
   <select id="service" name="service" required>
     <option value="" selected disabled>Select one</option>
-    <option>Driveway / Paths</option>
-    <option>Deck</option>
-    <option>Exterior wash</option>
-    <option>Fence / Patio</option>
-    <option>Not sure</option>
+    <option value="driveway">Driveway / Paths</option>
+    <option value="deck">Decks & Outdoor Areas</option>
+    <option value="exterior">Exterior Washing</option>
+    <option value="other">Other / Not sure</option>
   </select>
 </div>
+
 
 
                 <div class="field" style="grid-column: 1 / -1;">
                   <label for="details">Details</label>
                   <textarea
-                    id="details"
-                    name="details"
-                    rows="5"
-                    placeholder="Approx size, surface type, level of grime, access, and anything else helpful."
-                  ></textarea>
+  id="details"
+  name="details"
+  rows="5"
+  placeholder="Tell us a bit about the area, surface, size, or anything else that might help."
+></textarea>
+
                 </div>
               </div>
 
